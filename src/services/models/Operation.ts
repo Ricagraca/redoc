@@ -67,6 +67,7 @@ export class OperationModel implements IMenuItem {
   expanded: boolean = false;
   //#endregion
 
+  position: boolean;
   pointer: string;
   operationId?: string;
   operationHash?: string;
@@ -89,6 +90,7 @@ export class OperationModel implements IMenuItem {
   ) {
     makeObservable(this);
 
+    this.position = options.position;
     this.pointer = operationSpec.pointer;
 
     this.description = operationSpec.description;

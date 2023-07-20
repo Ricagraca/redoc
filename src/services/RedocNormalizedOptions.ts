@@ -38,6 +38,7 @@ export interface RedocRawOptions {
   showObjectSchemaExamples?: boolean | string;
   showSecuritySchemeType?: boolean;
   hideSecuritySection?: boolean;
+  position?: boolean;
 
   unstable_ignoreMimeParameters?: boolean;
 
@@ -211,6 +212,7 @@ export class RedocNormalizedOptions {
     return 10;
   }
 
+  position: boolean;
   theme: ResolvedThemeInterface;
   scrollYOffset: () => number;
   hideHostname: boolean;
@@ -306,6 +308,7 @@ export class RedocNormalizedOptions {
     this.jsonSampleExpandLevel = RedocNormalizedOptions.normalizeJsonSampleExpandLevel(
       raw.jsonSampleExpandLevel,
     );
+    this.position = argValueToBoolean(raw.position);
     this.enumSkipQuotes = argValueToBoolean(raw.enumSkipQuotes);
     this.hideSchemaTitles = argValueToBoolean(raw.hideSchemaTitles);
     this.simpleOneOfTypeLabel = argValueToBoolean(raw.simpleOneOfTypeLabel);

@@ -256,6 +256,9 @@ export interface ResolvedThemeInterface {
     sectionHorizontal: number;
     sectionVertical: number;
   };
+  position: {
+    above: boolean;
+  };
   breakpoints: {
     small: string;
     medium: string;

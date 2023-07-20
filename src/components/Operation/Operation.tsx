@@ -61,12 +61,14 @@ export const Operation = observer(({ operation }: OperationProps): JSX.Element =
             <ResponsesList responses={operation.responses} />
             <CallbacksList callbacks={operation.callbacks} />
           </MiddlePanel>
-          <DarkRightPanel>
-            {!options.pathInMiddlePanel && !isWebhook && <Endpoint operation={operation} />}
-            <RequestSamples operation={operation} />
-            <ResponseSamples operation={operation} />
-            <CallbackSamples callbacks={operation.callbacks} />
-          </DarkRightPanel>
+          {operation.position && (
+            <DarkRightPanel>
+              {!options.pathInMiddlePanel && !isWebhook && <Endpoint operation={operation} />}
+              <RequestSamples operation={operation} />
+              <ResponseSamples operation={operation} />
+              <CallbackSamples callbacks={operation.callbacks} />
+            </DarkRightPanel>
+          )}
         </Row>
       )}
     </OptionsContext.Consumer>
